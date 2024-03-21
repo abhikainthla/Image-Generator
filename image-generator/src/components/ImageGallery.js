@@ -19,29 +19,33 @@ function ImageGallery() {
             .catch(error => console.error('Error fetching images:', error));
     }
 
-    function loadMore() {
-        displayImages();
-    }
+
 
     return (
-        <div>
+        <div className='container'>
+            <h1>Image Generator</h1>
+            <div className='input-section'>
             <input type="text" id="search" placeholder="Search..." />
             <button onClick={displayImages}>Search</button>
+            </div>
             <div id="images">
                 {images.map((image, index) => (
-                    <img
+                        <img
                         key={index}
                         src={image.urls.regular}
                         alt={`Image ${index}`}
                         className="imgEle"
                         height="100"
                         onClick={() => {
-                            // Handle image click event
-                        }}
+                            
+                        }
+
+                    }
                     />
                 ))}
             </div>
-            <button className="loadBtn" onClick={loadMore}>Load More</button>
+
+
         </div>
     );
 }
